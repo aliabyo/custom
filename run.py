@@ -5,7 +5,7 @@ from highrise.__main__ import *
 from highrise.__main__ import *
 import time
 import traceback
-import time
+import os
 from highrise.models import (
     Item,
     Position,
