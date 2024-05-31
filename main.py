@@ -188,7 +188,7 @@ class MyBot(BaseBot):
 
             if receiver.username  == "Devil_farm1":
               if tip.amount == 100:
-                   await self.highrise.teleport(sender.id, Position(9,9.5, 1))
+                   await self.highrise.teleport(sender.id, Position(13.5,16.25 ,3))
     async def on_chat(self, user: User, message: str):
         try:
 
@@ -198,7 +198,7 @@ class MyBot(BaseBot):
 
             if message.startswith("dj")and user.username in co_mod:                    
               await self.highrise.teleport(user.id, Position(9.5,8.25, 12.5)) 
-            if message.startswith("g"):           
+            if message =="g" or message == "g ":           
               await self.highrise.teleport(user.id, Position(4,6.75,18.5)) 
           
            
@@ -225,14 +225,12 @@ class MyBot(BaseBot):
                     return                     
                 try:
                     if message.startswith("!vip")and user.username in co_mod:                              
-                        await self.highrise.teleport(user_id, Position(16.5,10, 19))
+                        await self.highrise.teleport(user_id, Position(13.5,16.25 ,3))
                     if message.startswith("!dj")and user.username in co_mod:                    
-                        await self.highrise.teleport(user_id, Position(16,13.75, 0.5))
+                        await self.highrise.teleport(user_id, Position(9.5,8.25, 12.5))
                     if message.startswith("!g")and user.username in co_mod:           
-                        await self.highrise.teleport(user_id, Position(10,0,23.5)) 
-                    if message.startswith("!host")and user.username in co_mod:           
-                        await self.highrise.teleport(user_id, Position(2.5,8.25,2.5)) 
-
+                        await self.highrise.teleport(user_id, Position(4,6.75,18.5)) 
+                  
 
                 except Exception as e:
                     print(f"An exception occurred[Due To {parts[0][1:]}]: {e}")
