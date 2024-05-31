@@ -147,7 +147,7 @@ class MyBot(BaseBot):
     async def on_start(self, SessionMetadata: SessionMetadata) -> None:
         try:
             
-            await self.highrise.walk_to(Position(14,0,29, "FrontLeft"))
+            await self.highrise.walk_to(Position(0.5,6.75,1.5, "FrontRight"))
             await asyncio.sleep(3)
             await self.highrise.chat(" on duty!")
             item = await self.webapi.get_items(item_name="Top Knot") 
@@ -189,34 +189,20 @@ class MyBot(BaseBot):
             if receiver.username  == "Devil_farm1":
               if tip.amount == 100:
                    await self.highrise.teleport(sender.id, Position(9,9.5, 1))
-    async def on_reaction(self, user: User, reaction: Reaction, receiver: User) -> None:
-    
-      if reaction =="wink" and user.username in moderator:
-         target_username = receiver.username
-         if target_username not in ["Alionardo_"]:
-            await self.teleport_user_next_to(target_username, user)
-
-      if user.username in moderator and reaction == "wave":
-          await self.highrise.moderate_room(receiver.id, "kick")
-          await self.highrise.chat(f"{receiver.username} is Kicked by {user.username}")
-      if user.username in moderator and reaction == "heart":
-          await self.highrise.teleport(receiver.id, Position(16.5,10, 19))
     async def on_chat(self, user: User, message: str):
         try:
 
             if message.startswith("vip")and user.username in co_mod:                              
-              await self.highrise.teleport(user.id, Position(16.5,10, 19))
+              await self.highrise.teleport(user.id, Position(13.5,16.25 ,3))
 
 
             if message.startswith("dj")and user.username in co_mod:                    
-              await self.highrise.teleport(user.id, Position(16,13.75, 0.5)) 
+              await self.highrise.teleport(user.id, Position(9.5,8.25, 12.5)) 
             if message.startswith("g"):           
-              await self.highrise.teleport(user.id, Position(10,0,23.5)) 
+              await self.highrise.teleport(user.id, Position(4,6.75,18.5)) 
           
-            if message.startswith("host")and user.username in co_mod:           
-                        await self.highrise.teleport(user.id, Position(2.5,8.25,2.5)) 
-
-            if message.lstrip().startswith(("!vip","!g","!dj","!host")):
+           
+            if message.lstrip().startswith(("!vip","!g","!dj")):
                 response = await self.highrise.get_room_users()
                 users = [content[0] for content in response.content]
                 usernames = [user.username.lower() for user in users]
